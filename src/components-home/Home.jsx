@@ -516,6 +516,10 @@ const Home = () => {
                       onClick={() => {
                         if (destination.code === 'US') {
                           navigate('/countries/us');
+                        } else if (destination.code === 'AT') {
+                          navigate('/countries/austria');
+                        } else if (destination.code === 'PL') {
+                          navigate('/countries/poland');
                         }
                       }}
                     >

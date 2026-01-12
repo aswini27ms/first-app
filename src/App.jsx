@@ -9,8 +9,13 @@ import Footer from './components/Footer';
 import Home from './components-home/Home';
 import Services from './pages/Services'; 
 import USUniversities from './components-country/us/us';
+import USEligibilityDetail from './components-country/us/EligibilityDetail';
+import AustriaUniversities from './components-country/austria/austria';
+import AustriaEligibilityDetail from './components-country/austria/EligibilityDetail';
+import PolandUniversities from './components-country/poland/poland';
+import PolandEligibilityDetail from './components-country/poland/EligibilityDetail';
 
-// Individual University Eligibility Imports
+// Individual University Eligibility Imports (US)
 // Make sure these files exist in your: src/components-country/us/eligibility/ directory
 import HarvardEligibility from './components-country/us/eligibility/HarvardEligibility';
 // Import other universities as you create them:
@@ -61,10 +66,19 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
             
-            {/* USA Universities Landing Page */}
+            {/* USA Universities Landing & Eligibility Pages */}
             <Route path="/countries/us" element={<USUniversities />} />
+            <Route path="/country/us/:uniName" element={<USEligibilityDetail />} />
             
-            {/* Individual Eligibility Routes */}
+            {/* Austria Universities Landing & Eligibility Pages */}
+            <Route path="/countries/austria" element={<AustriaUniversities />} />
+            <Route path="/country/austria/:uniName" element={<AustriaEligibilityDetail />} />
+            
+            {/* Poland Universities Landing & Eligibility Pages */}
+            <Route path="/countries/poland" element={<PolandUniversities />} />
+            <Route path="/country/poland/:uniName" element={<PolandEligibilityDetail />} />
+            
+            {/* Individual Eligibility Routes (US Legacy) */}
             {/* These paths MUST match the 'path' property in your USUniversities.jsx data array */}
             <Route path="/eligibility/harvard" element={<HarvardEligibility />} />
             <Route path="/eligibility/stanford" element={<StanfordEligibility />} />
