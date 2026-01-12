@@ -9,6 +9,7 @@ import Footer from './components/Footer';
 import Home from './components-home/Home';
 import Services from './pages/Services'; 
 import USUniversities from './components-country/us/us';
+import AustraliaUniversities from './components-country/australia/australia';
 
 // Individual University Eligibility Imports
 // Make sure these files exist in your: src/components-country/us/eligibility/ directory
@@ -29,6 +30,18 @@ import UTAustinEligibility from './components-country/us/eligibility/UTAustinEli
 import UWEligibility from './components-country/us/eligibility/UWEligibility';
 import PurdueEligibility from './components-country/us/eligibility/PurdueEligibility';
 
+import UnimelbEligibility from './components-country/australia/eligibility/UnimelbEligibility';
+import AnuEligibility from './components-country/australia/eligibility/AnuEligibility';
+import UosEligibility from './components-country/australia/eligibility/UosEligibility';
+import UqEligibility from './components-country/australia/eligibility/UqEligibility';
+import MonashEligibility from './components-country/australia/eligibility/MonashEligibility';
+import UnswEligibility from './components-country/australia/eligibility/UnswEligibility';
+import UwaEligibility from './components-country/australia/eligibility/UwaEligibility';
+import AdelaideEligibility from './components-country/australia/eligibility/AdelaideEligibility';
+import RmitEligibility from './components-country/australia/eligibility/RmitEligibility';
+import UtsEligibility from './components-country/australia/eligibility/UtsEligibility';
+import DeakinEligibility from './components-country/australia/eligibility/DeakinEligibility';
+import MacquarieEligibility from './components-country/australia/eligibility/MacqarieEligibility';
 
 // Placeholder for the Enquiry Page
 const Enquiry = () => (
@@ -63,6 +76,8 @@ function App() {
             
             {/* USA Universities Landing Page */}
             <Route path="/countries/us" element={<USUniversities />} />
+            {/* Australia Universities Landing Page */}
+            <Route path="/countries/australia" element={<AustraliaUniversities />} />
             
             {/* Individual Eligibility Routes */}
             {/* These paths MUST match the 'path' property in your USUniversities.jsx data array */}
@@ -81,6 +96,19 @@ function App() {
             <Route path="/eligibility/ut-austin" element={<UTAustinEligibility />} />
             <Route path="/eligibility/university-of-washington" element={<UWEligibility />} />
             <Route path="/eligibility/purdue" element={<PurdueEligibility />} />
+
+            <Route path="/eligibility/unimelb" element={<UnimelbEligibility />} />
+            <Route path="/eligibility/anu" element={<AnuEligibility />} />
+            <Route path="/eligibility/usyd" element={<UosEligibility />} />
+            <Route path="/eligibility/uq" element={<UqEligibility />} />
+            <Route path="/eligibility/monash" element={<MonashEligibility />} />
+            <Route path="/eligibility/unsw" element={<UnswEligibility />} />
+            <Route path="/eligibility/uwa" element={<UwaEligibility />} />
+            <Route path="/eligibility/adelaide" element={<AdelaideEligibility />} />
+            <Route path="/eligibility/rmit" element={<RmitEligibility />} />
+            <Route path="/eligibility/uts" element={<UtsEligibility />} />
+            <Route path="/eligibility/deakin" element={<DeakinEligibility />} />
+            <Route path="/eligibility/macquarie" element={<MacquarieEligibility />} />
 
             {/* Add more routes here as you build the files:
             
