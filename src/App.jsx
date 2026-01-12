@@ -50,6 +50,16 @@ import AustriaEligibilityDetail from './components-country/austria/EligibilityDe
 import PolandUniversities from './components-country/poland/poland';
 import PolandEligibilityDetail from './components-country/poland/EligibilityDetail';
 
+// Service Detail Pages
+import OverseasEducationDetail from './pages/services/OverseasEducationDetail';
+import ScholarshipGuidanceDetail from './pages/services/ScholarshipGuidanceDetail';
+import VisaAssistanceDetail from './pages/services/VisaAssistanceDetail';
+import LanguageTrainingDetail from './pages/services/LanguageTrainingDetail';
+import PlacementSupportDetail from './pages/services/PlacementSupportDetail';
+import SoftSkillsTrainingDetail from './pages/services/SoftSkillsTrainingDetail';
+import PlacementAssistanceDetail from './pages/services/PlacementAssistanceDetail';
+import PostAdmissionDetail from './pages/services/PostAdmissionDetail';
+
 // Placeholder for the Enquiry Page
 const Enquiry = () => (
   <div className="pt-40 pb-20 text-center min-h-screen bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100 transition-colors duration-500">
@@ -80,6 +90,16 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
+            
+            {/* Service Detail Pages */}
+            <Route path="/services/overseas-edu" element={<OverseasEducationDetail />} />
+            <Route path="/services/scholarships" element={<ScholarshipGuidanceDetail />} />
+            <Route path="/services/visa-assistance" element={<VisaAssistanceDetail />} />
+            <Route path="/services/language-training" element={<LanguageTrainingDetail />} />
+            <Route path="/services/placement-support" element={<PlacementSupportDetail />} />
+            <Route path="/services/soft-skills" element={<SoftSkillsTrainingDetail />} />
+            <Route path="/services/placement-assist" element={<PlacementAssistanceDetail />} />
+            <Route path="/services/post-admission" element={<PostAdmissionDetail />} />
             
             {/* USA Universities Landing & Eligibility Pages */}
             <Route path="/countries/us" element={<USUniversities />} />

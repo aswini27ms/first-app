@@ -181,7 +181,7 @@ const Services = () => {
 
                 {/* Enhanced Learn More Button */}
                 <Link 
-                  to="/enquiry" 
+                  to={`/services/${service.id}`}
                   className="inline-flex items-center gap-3 text-sm font-black text-gray-900 dark:text-white group/btn mt-auto"
                 >
                   <span className="relative">
