@@ -20,6 +20,15 @@ import PrincetonEligibility from './components-country/us/eligibility/PrincetonE
 import YaleEligibility from './components-country/us/eligibility/YaleEligibility';
 import CarnegiemellonEligibility from './components-country/us/eligibility/CarnegiemellonEligibility';
 import UCBerkeleyEligibility from './components-country/us/eligibility/UCBerkeleyEligibility';
+import WhartonEligibility from './components-country/us/eligibility/WhartonEligibility';
+import ColumbiaEligibility from './components-country/us/eligibility/ColumbiaEligibility';
+import CornellEligibility from './components-country/us/eligibility/CornellEligibility';
+import GeorgiaTechEligibility from './components-country/us/eligibility/eorgiaTechEligibility';
+import UCLAEligibility from './components-country/us/eligibility/UCLAEligibility';
+import UTAustinEligibility from './components-country/us/eligibility/UTAustinEligibility';
+import UWEligibility from './components-country/us/eligibility/UWEligibility';
+import PurdueEligibility from './components-country/us/eligibility/PurdueEligibility';
+
 
 // Placeholder for the Enquiry Page
 const Enquiry = () => (
@@ -64,6 +73,14 @@ function App() {
             <Route path="/eligibility/yale" element={<YaleEligibility />} />
             <Route path="/eligibility/carnegie-mellon" element={<CarnegiemellonEligibility />} />
             <Route path="/eligibility/uc-berkeley" element={<UCBerkeleyEligibility />} />
+            <Route path="/eligibility/wharton" element={<WhartonEligibility />} />
+            <Route path="/eligibility/columbia" element={<ColumbiaEligibility />} />
+            <Route path="/eligibility/cornell" element={<CornellEligibility />} />
+            <Route path="/eligibility/georgia-tech" element={<GeorgiaTechEligibility />} />
+            <Route path="/eligibility/ucla" element={<UCLAEligibility />} />
+            <Route path="/eligibility/ut-austin" element={<UTAustinEligibility />} />
+            <Route path="/eligibility/university-of-washington" element={<UWEligibility />} />
+            <Route path="/eligibility/purdue" element={<PurdueEligibility />} />
 
             {/* Add more routes here as you build the files:
             

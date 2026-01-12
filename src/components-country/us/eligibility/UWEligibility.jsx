@@ -7,13 +7,14 @@ import {
   TrendingUp, Award, Users, Sparkles, Star, Zap
 } from 'lucide-react';
 
-const UCBerkeleyEligibility = () => {
+const UWEligibility = () => {
   const navigate = useNavigate();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const { scrollYProgress } = useScroll();
   const opacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
   const scale = useTransform(scrollYProgress, [0, 0.3], [1, 0.95]);
 
+  // Track mouse for parallax effects
   useEffect(() => {
     const handleMouseMove = (e) => {
       setMousePosition({
@@ -25,6 +26,7 @@ const UCBerkeleyEligibility = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+  // Animation Variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { 
@@ -35,11 +37,7 @@ const UCBerkeleyEligibility = () => {
 
   const itemVariants = {
     hidden: { y: 30, opacity: 0 },
-    visible: { 
-      y: 0, 
-      opacity: 1, 
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } 
-    }
+    visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] } }
   };
 
   const floatVariants = {
@@ -52,19 +50,19 @@ const UCBerkeleyEligibility = () => {
   const sections = [
     {
       title: "Academic Eligibility",
-      icon: <BookOpen className="text-blue-800" />,
+      icon: <BookOpen className="text-purple-800" />,
       content: [
         { 
           label: "Undergraduate Programs", 
-          detail: "Completion of 12 years of formal schooling with excellent academic performance, generally in the top 9% of your class." 
+          detail: "Completion of 12 years of formal schooling with strong academic performance, generally in the top 10% of your class." 
         },
         { 
           label: "Core Preparation", 
-          detail: "Strong preparation in Mathematics, Physics, Chemistry, and Computer Science for STEM majors; rigorous coursework is strongly preferred." 
+          detail: "Solid preparation in Mathematics, Sciences (Physics/Chemistry for STEM), and analytical writing; competitive majors like CS and Engineering have higher cut-offs and expectations." 
         },
         { 
           label: "Graduate / Master’s Programs", 
-          detail: "Bachelor’s degree from a recognized university with strong alignment to the selected program, plus research projects, internships, or industry experience." 
+          detail: "Bachelor’s degree from a recognized university with strong alignment to the chosen program plus research experience, internships, or industry exposure; competitive programs may require specific prerequisite courses." 
         }
       ]
     },
@@ -74,25 +72,25 @@ const UCBerkeleyEligibility = () => {
       content: [
         { 
           label: "English Proficiency", 
-          detail: "For international students: IELTS 7.0+; TOEFL iBT typically 90–100+; Duolingo 120+ may be accepted by some programs." 
+          detail: "For international students: IELTS 7.0+ and TOEFL iBT around 92–100+ are competitive; Duolingo scores of 120+ may be considered where programs accept DET." 
         },
         { 
           label: "GRE / GMAT", 
-          detail: "GRE is required or recommended for many graduate programs; GMAT is required for the Haas School of Business MBA, with some departments test-optional." 
+          detail: "GRE is required or recommended for many MS and PhD programs; GMAT is required for the Foster School of Business MBA, with some departments following test-optional or waiver policies." 
         },
         { 
           label: "Program Specific", 
-          detail: "Certain departments expect strong quantitative skills, prior research exposure, and program-aligned coursework in addition to test scores." 
+          detail: "Score ranges and prerequisites can vary by department, especially in CS, engineering, data science, and analytics-heavy programs." 
         }
       ]
     }
   ];
 
   const stats = [
-    { icon: <Users />, label: "Acceptance Rate", value: "≈12–15%", color: "bg-blue-800" },
-    { icon: <TrendingUp />, label: "Avg Starting Salary", value: "$90k+", color: "bg-green-500" },
-    { icon: <Award />, label: "Top Ranked Fields", value: "CS • Engg • Business", color: "bg-amber-500" },
-    { icon: <Globe2 />, label: "International Students", value: "20%+", color: "bg-blue-500" }
+    { icon: <Users />, label: "Acceptance Rate", value: "≈45–50%", color: "bg-purple-800" },
+    { icon: <TrendingUp />, label: "Avg Starting Salary", value: "$70k+", color: "bg-green-500" },
+    { icon: <Award />, label: "Top Strengths", value: "CS • HC • BioMed", color: "bg-amber-500" },
+    { icon: <Globe2 />, label: "International Students", value: "15%+", color: "bg-blue-500" }
   ];
 
   return (
@@ -107,7 +105,7 @@ const UCBerkeleyEligibility = () => {
             rotate: [0, 90, 0]
           }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute top-20 right-20 w-96 h-96 bg-blue-800/10 dark:bg-blue-800/5 rounded-full blur-3xl"
+          className="absolute top-20 right-20 w-96 h-96 bg-purple-800/15 dark:bg-purple-800/10 rounded-full blur-3xl"
         />
         <motion.div 
           animate={{ 
@@ -121,7 +119,7 @@ const UCBerkeleyEligibility = () => {
         />
       </div>
 
-      {/* Hero Section */}
+      {/* --- HERO SECTION WITH PARALLAX IMAGE --- */}
       <motion.div 
         style={{ opacity, scale }}
         className="relative h-[70vh] w-full overflow-hidden"
@@ -137,18 +135,20 @@ const UCBerkeleyEligibility = () => {
           className="absolute inset-0"
         >
           <img 
-            src="/assets/colleges/ucb.jpg" 
-            alt="UC Berkeley" 
+            src="/assets/colleges/unwash.jpg" 
+            alt="University of Washington, Seattle" 
             className="w-full h-full object-cover"
           />
+          {/* Animated Overlay Gradients */}
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.5 }}
             className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-gray-50 dark:to-slate-950"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-900/60 via-transparent to-amber-900/40 opacity-70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-900/60 via-transparent to-purple-700/40 opacity-80" />
           
+          {/* Animated Particles */}
           {[...Array(15)].map((_, i) => (
             <motion.div
               key={i}
@@ -173,34 +173,35 @@ const UCBerkeleyEligibility = () => {
           ))}
         </motion.div>
 
-        {/* Hero Content */}
-        <div className="absolute inset-0 flex flex.col items-center justify-center text-center px-6">
+        {/* Hero Content with Glow Effect */}
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
             className="relative"
           >
+            {/* Glowing Badge */}
             <motion.div
               animate={{ 
                 boxShadow: [
-                  "0 0 20px rgba(30, 64, 175, 0.3)",
-                  "0 0 40px rgba(30, 64, 175, 0.6)",
-                  "0 0 20px rgba(30, 64, 175, 0.3)"
+                  "0 0 20px rgba(88, 28, 135, 0.3)",
+                  "0 0 40px rgba(88, 28, 135, 0.7)",
+                  "0 0 20px rgba(88, 28, 135, 0.3)"
                 ]
               }}
               transition={{ duration: 2, repeat: Infinity }}
               className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/30 text-white px-6 py-3 rounded-full mb-6 font-bold"
             >
-              <Sparkles size={16} className="text-amber-400" />
-              Public Research Powerhouse
+              <Sparkles size={16} className="text-amber-300" />
+              Seattle Tech Ecosystem Advantage
             </motion.div>
             
             <h1 className="text-5xl md:text-7xl font-black text-white mb-4 tracking-tight">
-              UC Berkeley
+              University of Washington
             </h1>
             <p className="text-xl md:text-2xl text-white/90 font-medium max-w-2xl">
-              Where Academic Excellence Drives Real-World Change
+              Public-Research Depth in the Heart of Seattle’s Innovation Hub
             </p>
           </motion.div>
         </div>
@@ -211,7 +212,7 @@ const UCBerkeleyEligibility = () => {
             onClick={() => navigate(-1)}
             whileHover={{ scale: 1.05, x: -5 }}
             whileTap={{ scale: 0.95 }}
-            className="group flex items-center gap-2 bg-white/10 backdrop-blur-xl border border-white/30 text.white px-6 py-3 rounded-full font-bold hover:bg-white hover:text-blue-800 transition-all shadow-2xl relative overflow-hidden"
+            className="group flex items-center gap-2 bg-white/10 backdrop-blur-xl border border-white/30 text-white px-6 py-3 rounded-full font-bold hover:bg-white hover:text-purple-800 transition-all shadow-2xl relative overflow-hidden"
           >
             <span className="absolute inset-0 bg-white translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-300" />
             <ArrowLeft size={20} className="relative z-10 group-hover:-translate-x-1 transition-transform" /> 
@@ -224,7 +225,7 @@ const UCBerkeleyEligibility = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
+          className="absolute.bottom-10 left-1/2 -translate-x-1/2"
         >
           <motion.div
             animate={{ y: [0, 10, 0] }}
@@ -240,7 +241,7 @@ const UCBerkeleyEligibility = () => {
         </motion.div>
       </motion.div>
 
-      {/* Stats Bar */}
+      {/* Stats Bar (centered content) */}
       <motion.div 
         initial={{ y: 50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -261,17 +262,22 @@ const UCBerkeleyEligibility = () => {
               <motion.div
                 className={`absolute inset-0 ${stat.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
               />
-              <div className={`w-12 h-12 ${stat.color} rounded-2xl flex items-center justify-center mb-4 text-white transform group-hover:rotate-12 transition-transform`}>
-                {stat.icon}
+              <div className="flex flex-col items-center justify-center text-center space-y-3 relative z-10">
+                <div className={`w-12 h-12 ${stat.color} rounded-2xl flex items-center justify-center text-white transform group-hover:rotate-12 transition-transform`}>
+                  {stat.icon}
+                </div>
+                <p className="text-3xl font-black text-gray-900 dark:text-white">
+                  {stat.value}
+                </p>
+                <p className="text-xs font-bold text-gray-500 uppercase tracking-wider">
+                  {stat.label}
+                </p>
               </div>
-              <p className="text-3xl font-black text-gray-900 dark:text-white mb-1">{stat.value}</p>
-              <p className="text-xs font-bold text-gray-500 uppercase tracking-wider">{stat.label}</p>
             </motion.div>
           ))}
         </div>
       </motion.div>
 
-      {/* Main Content */}
       <motion.div 
         variants={containerVariants}
         initial="hidden"
@@ -281,7 +287,7 @@ const UCBerkeleyEligibility = () => {
       >
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           
-          {/* Left Column */}
+          {/* LEFT COLUMN */}
           <div className="lg:col-span-1">
             <div className="lg:sticky lg:top-32 space-y-6">
               <motion.div 
@@ -290,22 +296,15 @@ const UCBerkeleyEligibility = () => {
                 className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl p-8 rounded-[3rem] border border-gray-200 dark:border-slate-800 shadow-2xl relative overflow-hidden group"
               >
                 <motion.div
-                  animate={{
-                    x: ["-100%", "200%"],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    repeatDelay: 5,
-                    ease: "easeInOut"
-                  }}
-                  className="absolute inset-0 w-1/2 bg-gradient-to-r from.transparent via-white/20 to.transparent skew-x-12"
+                  animate={{ x: ["-100%", "200%"] }}
+                  transition={{ duration: 3, repeat: Infinity, repeatDelay: 5, ease: "easeInOut" }}
+                  className="absolute inset-0 w-1/2 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"
                 />
                 
                 <motion.div 
                   variants={floatVariants}
                   animate="animate"
-                  className="w-16 h-16 bg-gradient-to.br from-blue-900 to-blue-700 rounded-2xl mb-6 flex items-center justify-center shadow-xl rotate-3 relative"
+                  className="w-16 h-16 bg-gradient-to-br from-purple-800 to-purple-600 rounded-2xl mb-6 flex items-center justify-center shadow-xl rotate-3 relative"
                 >
                   <motion.div
                     animate={{ rotate: 360 }}
@@ -316,27 +315,27 @@ const UCBerkeleyEligibility = () => {
                 </motion.div>
                 
                 <h1 className="text-4xl font-black text-gray-900 dark:text-white mb-2 leading-tight">
-                  UC Berkeley <span className="text-blue-800 italic block">University of California</span>
+                  University of Washington <span className="text-purple-800 italic block">Seattle Campus</span>
                 </h1>
                 <p className="text-gray-500 dark:text-slate-400 font-medium mb-6 flex items-center gap-2">
                   <Star size={16} className="text-amber-400 fill-amber-400" />
-                  Flagship Public Research • Berkeley, CA
+                  Public Research • Seattle, WA
                 </p>
                 
                 <div className="space-y-4 pt-6 border-t border-gray-100 dark:border-slate-800">
                   {[
-                    { label: "UC App Window", date: "November" },
-                    { label: "Grad Deadlines", date: "Dec – Jan" }
+                    { label: "Undergrad Priority", date: "November" },
+                    { label: "Regular Decision", date: "Dec / Jan" }
                   ].map((deadline, idx) => (
                     <motion.div 
                       key={idx}
                       whileHover={{ x: 5 }}
                       className="flex justify-between items-center group/deadline"
                     >
-                      <span className="text-xs font-black uppercase text-gray-400 tracking-widest flex items-center gap-2 group-hover/deadline:text-blue-800 transition-colors">
-                        <Clock size={14} className="text-blue-800" /> {deadline.label}
+                      <span className="text-xs font-black uppercase text-gray-400 tracking-widest flex items-center gap-2 group-hover/deadline:text-purple-800 transition-colors">
+                        <Clock size={14} className="text-purple-800" /> {deadline.label}
                       </span>
-                      <span className="font-bold dark:text.white">{deadline.date}</span>
+                      <span className="font-bold dark:text-white">{deadline.date}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -345,43 +344,33 @@ const UCBerkeleyEligibility = () => {
               <motion.div 
                 variants={itemVariants}
                 whileHover={{ scale: 1.02 }}
-                className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-950 p-8 rounded-[2.5rem] text-white shadow-2xl overflow-hidden group"
+                className="relative bg-gradient-to-br from-purple-800 via-purple-700 to-purple-900 p-8 rounded-[2.5rem] text-white shadow-2xl overflow-hidden group"
               >
                 <motion.div
-                  animate={{
-                    rotate: [0, 360],
-                  }}
-                  transition={{
-                    duration: 8,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }}
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
                   className="absolute inset-0 opacity-30"
                   style={{
                     background: "conic-gradient(from 0deg, transparent, rgba(255,255,255,0.3), transparent)"
                   }}
                 />
-                
                 <motion.div 
-                  animate={{ 
-                    scale: [1, 1.1, 1],
-                    rotate: [0, 5, 0]
-                  }}
+                  animate={{ scale: [1, 1.1, 1], rotate: [0, 5, 0] }}
                   transition={{ duration: 4, repeat: Infinity }}
                   className="absolute -right-4 -bottom-4 opacity-10"
                 >
                   <Target size={120} />
                 </motion.div>
                 
-                <Lightbulb className="mb-4 text-amber-300" size={32} />
+                <Lightbulb className="mb-4 text-amber-200" size={32} />
                 <p className="text-sm font-medium leading-relaxed italic relative z-10">
-                  "Berkeley blends academic rigor with real-world impact. Prove you can innovate, research, and lead at scale."
+                  "UW sits inside Seattle’s tech and research ecosystem. Show academic strength plus hands-on projects, research, or industry exposure."
                 </p>
               </motion.div>
             </div>
           </div>
 
-          {/* Right Column */}
+          {/* RIGHT COLUMN */}
           <div className="lg:col-span-2 space-y-8">
             
             {/* Eligibility */}
@@ -393,7 +382,7 @@ const UCBerkeleyEligibility = () => {
                   whileHover={{ y: -8, rotateY: 2 }}
                   className="bg-white dark:bg-slate-900 p-8 rounded-[2.5rem] border border-gray-100 dark:border-slate-800 shadow-sm hover:shadow-2xl transition-all relative overflow-hidden group"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-800/0 via-blue-500/0 to-purple-500/0 group-hover:from-blue-800/5 group-hover:via-blue-500/5 group-hover:to-purple-500/5 transition-all duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 via-blue-500/0 to-amber-500/0 group-hover:from-purple-500/5 group-hover:via-blue-500/5 group-hover:to-amber-500/5 transition-all duration-500" />
                   
                   <div className="flex items-center gap-3 mb-6 relative z-10">
                     <motion.div 
@@ -403,7 +392,7 @@ const UCBerkeleyEligibility = () => {
                     >
                       {section.icon}
                     </motion.div>
-                    <h2 className="text-xl font-black dark:text.white">{section.title}</h2>
+                    <h2 className="text-xl font-black dark:text-white">{section.title}</h2>
                   </div>
                   
                   <div className="space-y-4 relative z-10">
@@ -413,13 +402,11 @@ const UCBerkeleyEligibility = () => {
                         whileHover={{ x: 5 }}
                         className="group/item"
                       >
-                        <p className="text-[10px] font-black uppercase text-gray-400 tracking-tighter group-hover/item:text-blue-800 transition-colors flex items-center gap-2">
+                        <p className="text-[10px] font-black uppercase text-gray-400 tracking-tighter group-hover/item:text-purple-800 transition-colors flex items-center gap-2">
                           <Zap size={10} className="opacity-0 group-hover/item:opacity-100 transition-opacity" />
                           {item.label}
                         </p>
-                        <p className="text-sm font-semibold text-gray-700 dark:text-slate-300 leading-relaxed">
-                          {item.detail}
-                        </p>
+                        <p className="text-sm font-semibold text-gray-700 dark:text-slate-300 leading-relaxed">{item.detail}</p>
                       </motion.div>
                     ))}
                   </div>
@@ -427,10 +414,10 @@ const UCBerkeleyEligibility = () => {
               ))}
             </div>
 
-            {/* Checklist */}
+            {/* Application Checklist */}
             <motion.div 
               variants={itemVariants}
-              className="bg-gradient.to-br from-gray-900 via-slate-900 to-gray-900 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden border border-slate-800"
+              className="bg-gradient-to-br.from-gray-900 via-slate-900 to-gray-900 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 text-white p-10 rounded-[3rem] shadow-2xl relative overflow-hidden border border-slate-800"
             >
               <div className="absolute inset-0 opacity-5">
                 <div className="absolute inset-0" style={{
@@ -444,19 +431,19 @@ const UCBerkeleyEligibility = () => {
                   animate={{ rotate: [0, 10, -10, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
-                  <FileText className="text-blue-500" />
+                  <FileText className="text-purple-400" />
                 </motion.div>
                 Application Checklist
               </h2>
               
               <div className="grid md:grid-cols-2 gap-4 relative z-10">
                 {[
-                  "Online application via UC Application Portal",
-                  "Statement of Purpose / Personal History Statement",
-                  "2–3 Letters of Recommendation (for most graduate programs)",
+                  "Online application via UW application portal",
+                  "Statement of Purpose (SOP)",
+                  "2–3 Letters of Recommendation (mainly for graduate)",
                   "Official academic transcripts",
                   "Resume / CV (for graduate applicants)",
-                  "Research papers, portfolio, or project work (if applicable)"
+                  "Research papers, projects, or portfolio (if applicable)"
                 ].map((item, i) => (
                   <motion.div 
                     key={i}
@@ -465,56 +452,49 @@ const UCBerkeleyEligibility = () => {
                     whileHover={{ x: 10, scale: 1.02 }}
                     transition={{ delay: i * 0.1 }}
                     viewport={{ once: true }}
-                    className="flex items-center gap-3 bg.white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/10 hover:border-blue-500/50 hover:bg-white/10 transition-all cursor-pointer group"
+                    className="flex items-center gap-3 bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/10 hover:border-purple-500/50 hover:bg-white/10 transition-all.cursor-pointer group"
                   >
                     <motion.div
                       whileHover={{ rotate: 360, scale: 1.2 }}
                       transition={{ duration: 0.5 }}
                     >
-                      <CheckCircle2 size={18} className="text-blue-500 group-hover:text-green-400 transition-colors" />
+                      <CheckCircle2 size={18} className="text-purple-400 group-hover:text-green-400 transition-colors" />
                     </motion.div>
-                    <span className="font-bold text-sm text-gray-300 group-hover:text-white transition-colors">
-                      {item}
-                    </span>
+                    <span className="font-bold text-sm text-gray-300 group-hover:text-white transition-colors">{item}</span>
                   </motion.div>
                 ))}
               </div>
             </motion.div>
 
-            {/* Holistic Evaluation */}
+            {/* Holistic Evaluation & Financials */}
             <motion.div 
               variants={itemVariants}
               className="bg-white dark:bg-slate-900 p-10 rounded-[3rem] border border-gray-100 dark:border-slate-800 shadow-sm relative overflow-hidden"
             >
               <motion.div
-                animate={{
-                  scale: [1, 1.2, 1],
-                  rotate: [0, 90, 0]
-                }}
+                animate={{ scale: [1, 1.2, 1], rotate: [0, 90, 0] }}
                 transition={{ duration: 10, repeat: Infinity }}
-                className="absolute -top-10 -right-10 w-40 h-40 bg-blue-100 dark:bg-blue-900/20 rounded-full blur-3xl"
+                className="absolute -top-10 -right-10 w-40 h-40 bg-purple-100 dark:bg-purple-900/20 rounded-full blur-3xl"
               />
               
               <div className="flex items-center gap-3 mb-8 relative z-10">
                 <motion.div 
                   whileHover={{ rotate: 180, scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 200 }}
-                  className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-3xl"
+                  className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-3xl"
                 >
-                  <Target className="text-blue-800" size={28} />
+                  <Target className="text-purple-800" size={28} />
                 </motion.div>
-                <h2 className="text-3xl font-black dark:text-white tracking-tight">
-                  Holistic Evaluation
-                </h2>
+                <h2 className="text-3xl font-black dark:text-white tracking-tight">Holistic Evaluation</h2>
               </div>
               
               <div className="grid md:grid-cols-2 gap-8 items-center relative z-10">
                 <div className="space-y-4">
                   {[
-                    "Academic rigor and consistency",
-                    "Research ability and innovation",
-                    "Leadership, initiative, and impact",
-                    "Public service and global awareness"
+                    "Academic rigor, consistency, and strong grades",
+                    "Research ability, innovation, and analytics strength",
+                    "Leadership, initiative, and collaboration",
+                    "Ethics, integrity, and clear career goals in tech/health/research"
                   ].map((rule, i) => (
                     <motion.div 
                       key={i} 
@@ -527,11 +507,9 @@ const UCBerkeleyEligibility = () => {
                     >
                       <motion.div 
                         whileHover={{ scale: 1.5, rotate: 180 }}
-                        className="w-2 h-2 rounded-full bg-blue-800 group-hover:bg-green-500 transition-colors"
+                        className="w-2 h-2 rounded-full bg-purple-800 group-hover:bg-green-500 transition-colors"
                       />
-                      <span className="text-md font-bold text-gray-700 dark:text-slate-300 group-hover:text-blue-800 dark:group-hover:text-blue-400 transition-colors">
-                        {rule}
-                      </span>
+                      <span className="text-md font-bold text-gray-700 dark:text-slate-300 group-hover:text-purple-800 dark:group-hover:text-purple-400 transition-colors">{rule}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -541,10 +519,7 @@ const UCBerkeleyEligibility = () => {
                   className="bg-gradient-to-br from-amber-500 via-amber-600 to-orange-600 p-8 rounded-[2rem] text-white shadow-2xl shadow-amber-500/30 relative overflow-hidden"
                 >
                   <motion.div
-                    animate={{
-                      scale: [1, 1.5, 1],
-                      opacity: [0.3, 0.5, 0.3]
-                    }}
+                    animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0.5, 0.3] }}
                     transition={{ duration: 3, repeat: Infinity }}
                     className="absolute inset-0 bg-white/20 rounded-full blur-2xl"
                   />
@@ -554,56 +529,13 @@ const UCBerkeleyEligibility = () => {
                   </p>
                   <h4 className="text-xl font-black mb-2 relative z-10 flex items-center gap-2">
                     <Award size={24} />
-                    Limited Aid for Internationals
+                    High Cost, Limited Aid
                   </h4>
                   <p className="text-sm font-medium leading-relaxed relative z-10">
-                    Non-resident undergraduates face total tuition and fees roughly in the mid-40k USD range per year, and overall annual cost with living expenses often exceeds 60k, while UC Berkeley offers very limited need-based financial aid directly to international students, so strong funding documentation is important. [web:32][web:36][web:38][web:41]
+                    International undergraduates pay nonresident tuition of roughly $40k–44k per year, and with housing and other expenses, annual costs exceed $60k, while UW offers very limited institutional aid or scholarships for F-1 undergraduates and expects students to show ability to self-fund. [web:83][web:86][web:87][web:90][web:88]
                   </p>
                 </motion.div>
               </div>
-            </motion.div>
-
-            {/* CTA */}
-            <motion.div 
-              variants={itemVariants}
-              className="pt-10 flex flex-col items-center gap-6"
-            >
-              <motion.button 
-                onClick={() => navigate('/enquiry')}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="group relative px-12 py-6 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 text-white rounded-full font-black uppercase tracking-[0.2em] text-sm transition-all shadow-2xl shadow-blue-500/30 overflow-hidden"
-              >
-                <motion.span 
-                  className="absolute inset-0 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600"
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: "100%" }}
-                  transition={{ duration: 0.6 }}
-                />
-                
-                <motion.span
-                  animate={{
-                    scale: [1, 1.3, 1],
-                    opacity: [0.5, 0, 0.5]
-                  }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="absolute inset-0 border-2 border-white rounded-full"
-                />
-                
-                <span className="relative z-10 flex items-center gap-2">
-                  <Sparkles size={18} />
-                  Secure Your Consultation
-                </span>
-              </motion.button>
-              
-              <motion.p 
-                animate={{ opacity: [0.5, 1, 0.5] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="text-gray-400 font-bold text-xs uppercase tracking-widest flex items-center gap-2"
-              >
-                <Clock size={14} className="text-blue-500" />
-                UC deadlines are strict — no late submissions
-              </motion.p>
             </motion.div>
 
           </div>
@@ -613,4 +545,4 @@ const UCBerkeleyEligibility = () => {
   );
 };
 
-export default UCBerkeleyEligibility;
+export default UWEligibility;
