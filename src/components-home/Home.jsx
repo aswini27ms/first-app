@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { 
-  ChevronLeft, 
-  ChevronRight, 
-  MessageCircle, 
-  Globe, 
-  Plane, 
-  GraduationCap, 
-  Languages, 
-  Award, 
-  Users, 
-  BookOpen, 
-  TrendingUp, 
-  Calendar, 
-  DollarSign 
+import {
+  ChevronLeft,
+  ChevronRight,
+  MessageCircle,
+  Globe,
+  Plane,
+  GraduationCap,
+  Languages,
+  Award,
+  Users,
+  BookOpen,
+  TrendingUp,
+  Calendar,
+  DollarSign
 } from 'lucide-react';
 
 const Home = () => {
@@ -62,85 +62,77 @@ const Home = () => {
   ];
 
   const destinations = [
-    { 
+    {
       name: 'United States',
       code: 'US',
       image: 'assets/destinations/us.webp',
       universities: '4000+',
       programs: 'Business, Tech, Medicine',
       fees: '$15k - $60k/Year',
-      intake: 'Fall / Spring',
-      
+      intake: 'Fall / Spring'
     },
-    { 
+    {
       name: 'United Kingdom',
       code: 'UK',
       image: 'assets/destinations/uk.jpeg',
       universities: '160+',
       programs: 'Law, Arts, Engineering',
       fees: '£12k - £35k/Year',
-      intake: 'Sept / Jan',
-      
+      intake: 'Sept / Jan'
     },
-    { 
+    {
       name: 'Canada',
       code: 'CA',
       image: 'assets/destinations/canada.jpg',
       universities: '220+',
       programs: 'Tech, Business, Healthcare',
       fees: '$13k - $30k/Year',
-      intake: 'Sept / Jan / May',
-      
+      intake: 'Sept / Jan / May'
     },
-    { 
+    {
       name: 'Germany',
       code: 'DE',
       image: 'assets/destinations/germany.jpg',
       universities: '380+',
       programs: 'Engineering, Sciences, Arts',
       fees: '€0 - €3k/Sem',
-      intake: 'Oct / April',
-      
+      intake: 'Oct / April'
     },
-    { 
+    {
       name: 'New Zealand',
       code: 'NZ',
       image: 'assets/destinations/newzealand.avif',
       universities: '40+',
       programs: 'Tourism, Agriculture, Tech',
       fees: '$18k - $35k/Year',
-      intake: 'Feb / July',
-      
+      intake: 'Feb / July'
     },
-    { 
+    {
       name: 'Australia',
       code: 'AU',
       image: 'assets/destinations/australia.jpg',
       universities: '150+',
       programs: 'Business, Engineering, Health',
       fees: '$20k - $45k/Year',
-      intake: 'Feb / July',
-      
+      intake: 'Feb / July'
     },
-    { 
+    {
       name: 'Austria',
       code: 'AT',
       image: 'assets/destinations/austria.jpg',
       universities: '70+',
       programs: 'Music, Tech, Economics',
       fees: '€700 - €1500/Sem',
-      intake: 'Oct / March',
-      
+      intake: 'Oct / March'
     },
-    { 
+    {
       name: 'Poland',
       code: 'PL',
       image: 'assets/destinations/poland.webp',
       universities: '130+',
       programs: 'Medicine, Engineering, IT',
       fees: '€2k - €8k/Year',
-      intake: 'Oct / Feb',
-      
+      intake: 'Oct / Feb'
     }
   ];
 
@@ -169,19 +161,19 @@ const Home = () => {
               index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-110'
             }`}
           >
-            <div className={`absolute inset-0 bg-gradient-to-br ${slide.gradient} z-10 mix-blend-multiply`}></div>
+            <div
+              className={`absolute inset-0 bg-gradient-to-br ${slide.gradient} z-10 mix-blend-multiply`}
+            ></div>
             <div className="absolute inset-0 bg-black/30 z-10"></div>
 
-            <img
-              src={slide.image}
-              alt={slide.title}
-              className="w-full h-full object-cover"
-            />
+            <img src={slide.image} alt={slide.title} className="w-full h-full object-cover" />
 
             <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-6">
               <div
                 className={`mb-6 transition-all duration-1000 delay-200 ${
-                  index === currentSlide ? 'translate-y-0 opacity-100' : '-translate-y-12 opacity-0'
+                  index === currentSlide
+                    ? 'translate-y-0 opacity-100'
+                    : '-translate-y-12 opacity-0'
                 }`}
               >
                 <div className="inline-block px-6 py-2 bg-white/20 backdrop-blur-md rounded-full border border-white/30 text-white text-sm font-semibold mb-6">
@@ -236,13 +228,21 @@ const Home = () => {
           onClick={prevSlide}
           className="absolute left-6 top-1/2 -translate-y-1/2 z-30 p-5 bg-white/20 dark:bg-slate-800/30 backdrop-blur-lg rounded-full text-white hover:bg.white hover:text-gray-900 dark:hover:bg-slate-700 dark:hover:text-white transition-all group shadow-xl border border-white/30 dark:border-slate-600/30"
         >
-          <ChevronLeft size={28} className="group-hover:-translate-x-1 transition-transform" strokeWidth={3} />
+          <ChevronLeft
+            size={28}
+            className="group-hover:-translate-x-1 transition-transform"
+            strokeWidth={3}
+          />
         </button>
         <button
           onClick={nextSlide}
           className="absolute right-6 top-1/2 -translate-y-1/2 z-30 p-5 bg-white/20 dark:bg-slate-800/30 backdrop-blur-lg rounded-full text-white hover:bg.white hover:text-gray-900 dark:hover:bg-slate-700 dark:hover:text-white transition-all group shadow-xl border border-white/30 dark:border-slate-600/30"
         >
-          <ChevronRight size={28} className="group-hover:translate-x-1 transition-transform" strokeWidth={3} />
+          <ChevronRight
+            size={28}
+            className="group-hover:translate-x-1 transition-transform"
+            strokeWidth={3}
+          />
         </button>
 
         {/* Slide Indicators */}
@@ -343,7 +343,8 @@ const Home = () => {
                 className="group relative bg-gray-900 rounded-3xl shadow-lg hover:shadow-2xl transition-all overflow-hidden cursor-pointer h-[480px]"
                 style={{
                   animationDelay: `${idx * 100}ms`,
-                  transform: hoveredDestination === destination.code ? 'translateY(-8px)' : 'translateY(0)'
+                  transform:
+                    hoveredDestination === destination.code ? 'translateY(-8px)' : 'translateY(0)'
                 }}
               >
                 <div className="absolute inset-0">
@@ -352,7 +353,8 @@ const Home = () => {
                     alt={destination.name}
                     className="w-full h-full object-cover transition-transform duration-700"
                     style={{
-                      transform: hoveredDestination === destination.code ? 'scale(1.05)' : 'scale(1)'
+                      transform:
+                        hoveredDestination === destination.code ? 'scale(1.05)' : 'scale(1)'
                     }}
                   />
                   <div
@@ -375,7 +377,10 @@ const Home = () => {
                 <div
                   className="absolute top-6 right-6 z-20 text-5xl transition-transform duration-300"
                   style={{
-                    transform: hoveredDestination === destination.code ? 'scale(1.2) rotate(5deg)' : 'scale(1)'
+                    transform:
+                      hoveredDestination === destination.code
+                        ? 'scale(1.2) rotate(5deg)'
+                        : 'scale(1)'
                   }}
                 >
                   {destination.flag}
@@ -385,7 +390,8 @@ const Home = () => {
                   <h3
                     className="text-white text-3xl font-black mb-3 transition-all duration-300"
                     style={{
-                      transform: hoveredDestination === destination.code ? 'translateY(-4px)' : 'translateY(0)'
+                      transform:
+                        hoveredDestination === destination.code ? 'translateY(-4px)' : 'translateY(0)'
                     }}
                   >
                     {destination.name}
@@ -434,6 +440,9 @@ const Home = () => {
                           navigate('/countries/us');
                         } else if (destination.code === 'AU') {
                           navigate('/countries/australia');
+                        } else if (destination.code === 'UK') {
+                          // UK route -> connect to components-country/uk/uk.jsx
+                          navigate('/countries/uk');
                         }
                       }}
                     >
@@ -446,7 +455,10 @@ const Home = () => {
                 <div
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-1000 z-10"
                   style={{
-                    transform: hoveredDestination === destination.code ? 'translateX(100%)' : 'translateX(-100%)'
+                    transform:
+                      hoveredDestination === destination.code
+                        ? 'translateX(100%)'
+                        : 'translateX(-100%)'
                   }}
                 ></div>
               </div>
@@ -480,9 +492,7 @@ const Home = () => {
             Join thousands of students who achieved their dreams with our guidance
           </p>
 
-          <button
-            className="relative group bg-white dark:bg-slate-800 text-[#e32926] dark:text-orange-400 px-14 py-6 rounded-full font-black text-lg shadow-[0_20px_60px_rgba(255,255,255,0.35)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.5)] hover:shadow-[0_25px_80px_rgba(255,255,255,0.7)] dark:hover:shadow-[0_25px_80px_rgba(227,41,38,0.3)] ring-2 ring-white/60 dark:ring-slate-700/60 hover:ring-[#e32926]/60 dark:hover:ring-orange-400/60 transition-all duration-500 hover:-translate-y-2 hover:scale-110 active:scale-95 overflow-hidden"
-          >
+          <button className="relative group bg-white dark:bg-slate-800 text-[#e32926] dark:text-orange-400 px-14 py-6 rounded-full font-black text-lg shadow-[0_20px_60px_rgba(255,255,255,0.35)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.5)] hover:shadow-[0_25px_80px_rgba(255,255,255,0.7)] dark:hover:shadow-[0_25px_80px_rgba(227,41,38,0.3)] ring-2 ring-white/60 dark:ring-slate-700/60 hover:ring-[#e32926]/60 dark:hover:ring-orange-400/60 transition-all duration-500 hover:-translate-y-2 hover:scale-110 active:scale-95 overflow-hidden">
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via.white/60 dark:via-slate-600/60 to-transparent translate-x-[-120%] group-hover:translate-x-[120%] transition-transform duration-700 ease-out opacity-70"></span>
             <span className="relative z-10 text-black dark:text-white">
               Book Free Consultation

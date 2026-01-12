@@ -10,6 +10,7 @@ import Home from './components-home/Home';
 import Services from './pages/Services'; 
 import USUniversities from './components-country/us/us';
 import AustraliaUniversities from './components-country/australia/australia';
+import UKUniversities from './components-country/uk/uk';
 
 // Individual University Eligibility Imports
 // Make sure these files exist in your: src/components-country/us/eligibility/ directory
@@ -42,6 +43,19 @@ import RmitEligibility from './components-country/australia/eligibility/RmitElig
 import UtsEligibility from './components-country/australia/eligibility/UtsEligibility';
 import DeakinEligibility from './components-country/australia/eligibility/DeakinEligibility';
 import MacquarieEligibility from './components-country/australia/eligibility/MacqarieEligibility';
+
+import OxfordEligibility from './components-country/uk/eligibility/OxfordEligibility';
+import CambridgeEligibility from './components-country/uk/eligibility/CambridgeEligibility';
+import ImperialEligibility from './components-country/uk/eligibility/ImperialEligibility';
+import LSEEligibility from './components-country/uk/eligibility/LSEEligibility';
+import UCLEligibility from './components-country/uk/eligibility/UCLEligibility';
+import EdinburghEligibility from './components-country/uk/eligibility/EdinburghEligibility';
+import KCLEligibility from './components-country/uk/eligibility/KCLEligibility';
+import ManchesterEligibility from './components-country/uk/eligibility/ManchesterEligibility';
+import BristolEligibility from './components-country/uk/eligibility/BristolEligibility';
+import WarwickEligibility from './components-country/uk/eligibility/WarwickEligibility';
+import GlasgowEligibility from './components-country/uk/eligibility/GlasgowEligibility';
+import BirminghamEligibility from './components-country/uk/eligibility/BirminghamEligibility';
 
 // Placeholder for the Enquiry Page
 const Enquiry = () => (
@@ -78,6 +92,7 @@ function App() {
             <Route path="/countries/us" element={<USUniversities />} />
             {/* Australia Universities Landing Page */}
             <Route path="/countries/australia" element={<AustraliaUniversities />} />
+            <Route path="/countries/uk" element={<UKUniversities />} />
             
             {/* Individual Eligibility Routes */}
             {/* These paths MUST match the 'path' property in your USUniversities.jsx data array */}
@@ -109,6 +124,19 @@ function App() {
             <Route path="/eligibility/uts" element={<UtsEligibility />} />
             <Route path="/eligibility/deakin" element={<DeakinEligibility />} />
             <Route path="/eligibility/macquarie" element={<MacquarieEligibility />} />
+
+            <Route path="/eligibility/oxford" element={<OxfordEligibility />} />
+            <Route path="/eligibility/cambridge" element={<CambridgeEligibility />} />
+            <Route path="/eligibility/imperial" element={<ImperialEligibility />} />
+            <Route path="/eligibility/lse" element={<LSEEligibility />} />
+            <Route path="/eligibility/ucl" element={<UCLEligibility />} />
+            <Route path="/eligibility/edinburgh" element={<EdinburghEligibility />} />
+            <Route path="/eligibility/kings-college-london" element={<KCLEligibility />} />
+            <Route path="/eligibility/manchester" element={<ManchesterEligibility />} />
+            <Route path="/eligibility/bristol" element={<BristolEligibility />} />
+            <Route path="/eligibility/warwick" element={<WarwickEligibility />} />
+            <Route path="/eligibility/glasgow" element={<GlasgowEligibility />} />
+            <Route path="/eligibility/birmingham" element={<BirminghamEligibility />} />
 
             {/* Add more routes here as you build the files:
             
