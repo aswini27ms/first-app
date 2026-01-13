@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 
 // Page Components
 import Home from './components-home/Home';
-import Services from './pages/Services'; 
+import Services from './pages/Services';
 import USUniversities from './components-country/us/us';
 
 // Individual University Eligibility Imports (US)
@@ -50,6 +50,36 @@ import AustriaEligibilityDetail from './components-country/austria/EligibilityDe
 import PolandUniversities from './components-country/poland/poland';
 import PolandEligibilityDetail from './components-country/poland/EligibilityDetail';
 
+// Canada Universities & Eligibility Imports
+import CanadaUniversities from './components-country/canada/canada';
+import CanadaEligibilityDetail from './components-country/canada/EligibilityDetail';
+import UBC from './components-country/canada/eligibility/UBC';
+import Toronto from './components-country/canada/eligibility/Toronto';
+import McGill from './components-country/canada/eligibility/McGill';
+import Waterloo from './components-country/canada/eligibility/Waterloo';
+import Alberta from './components-country/canada/eligibility/Alberta';
+import McMaster from './components-country/canada/eligibility/McMaster';
+
+// Germany Universities & Eligibility Imports
+import GermanyUniversities from './components-country/germany/GermanyUniversities';
+import GermanyEligibilityDetail from './components-country/germany/EligibilityDetail';
+import TUM from './components-country/germany/eligibility/tum';
+import RWTHAachen from './components-country/germany/eligibility/rwth-aachen';
+import TUHH from './components-country/germany/eligibility/tuhh';
+import LMU from './components-country/germany/eligibility/lmu';
+import TUBerlin from './components-country/germany/eligibility/tuBerlin';
+import Stuttgart from './components-country/germany/eligibility/Stuttgart';
+
+// New Zealand Universities & Eligibility Imports
+import NewZealandUniversities from './components-country/newzealand/NewZealand';
+import NewZealandEligibilityDetail from './components-country/newzealand/EligibilityDetail';
+import Auckland from './components-country/newzealand/eligibility/Auckland';
+import Canterbury from './components-country/newzealand/eligibility/Canterbury';
+import Victoria from './components-country/newzealand/eligibility/VictoriaWellington';
+import Otago from './components-country/newzealand/eligibility/Otago';
+import Massey from './components-country/newzealand/eligibility/Massey';
+import AUT from './components-country/newzealand/eligibility/AUT';
+
 // Service Detail Pages
 import OverseasEducationDetail from './pages/services/OverseasEducationDetail';
 import ScholarshipGuidanceDetail from './pages/services/ScholarshipGuidanceDetail';
@@ -67,11 +97,11 @@ const Enquiry = () => (
       <span className="text-[#e32926] font-bold tracking-widest text-xs uppercase">Get Started</span>
       <h1 className="text-5xl font-black mt-4 mb-6">Ready to Start Your Journey?</h1>
       <p className="text-gray-500 dark:text-slate-400 text-lg leading-relaxed">
-        Our specialized enrollment form is currently under construction. 
+        Our specialized enrollment form is currently under construction.
         Soon you'll be able to register for global counseling right here!
       </p>
       <div className="mt-12 p-8 border-2 border-dashed border-gray-200 dark:border-slate-800 rounded-[2rem]">
-         <p className="text-sm font-medium italic text-gray-400">Registration Form Interface Coming Soon...</p>
+        <p className="text-sm font-medium italic text-gray-400">Registration Form Interface Coming Soon...</p>
       </div>
     </div>
   </div>
@@ -81,16 +111,16 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-white dark:bg-slate-950 flex flex-col transition-colors duration-500 selection:bg-[#e32926] selection:text-white">
-        
+
         {/* Navigation Bar */}
         <Navbar />
-        
+
         {/* Main Content Area */}
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
-            
+
             {/* Service Detail Pages */}
             <Route path="/services/overseas-edu" element={<OverseasEducationDetail />} />
             <Route path="/services/scholarships" element={<ScholarshipGuidanceDetail />} />
@@ -100,15 +130,15 @@ function App() {
             <Route path="/services/soft-skills" element={<SoftSkillsTrainingDetail />} />
             <Route path="/services/placement-assist" element={<PlacementAssistanceDetail />} />
             <Route path="/services/post-admission" element={<PostAdmissionDetail />} />
-            
+
             {/* USA Universities Landing & Eligibility Pages */}
             <Route path="/countries/us" element={<USUniversities />} />
-            
+
             {/* Individual Eligibility Routes (US Legacy) */}
             {/* These paths MUST match the 'path' property in your USUniversities.jsx data array */}
             <Route path="/eligibility/harvard" element={<HarvardEligibility />} />
             <Route path="/eligibility/stanford" element={<StanfordEligibility />} />
-            <Route path="/eligibility/mit" element={<MITEligibility />} /> 
+            <Route path="/eligibility/mit" element={<MITEligibility />} />
             <Route path="/eligibility/princeton" element={<PrincetonEligibility />} />
             <Route path="/eligibility/yale" element={<YaleEligibility />} />
             <Route path="/eligibility/carnegie-mellon" element={<CarnegiemellonEligibility />} />
@@ -143,18 +173,40 @@ function App() {
             <Route path="/countries/poland" element={<PolandUniversities />} />
             <Route path="/country/poland/:uniName" element={<PolandEligibilityDetail />} />
 
-            {/* Add more routes here as you build the files:
-            
-            
-            */}
-            
+            {/* Canada Universities Landing & Eligibility Pages */}
+            <Route path="/countries/canada" element={<CanadaUniversities />} />
+            <Route path="/eligibility/Toronto" element={<Toronto />} />
+            <Route path="/eligibility/ubc" element={<UBC />} />
+            <Route path="/eligibility/mcgill" element={<McGill />} />
+            <Route path="/eligibility/Waterloo" element={<Waterloo />} />
+            <Route path="/eligibility/Alberta" element={<Alberta />} />
+            <Route path="/eligibility/McMaster" element={<McMaster />} />
+
+            {/* Germany Universities Landing & Eligibility Pages */}
+            <Route path="/countries/germany" element={<GermanyUniversities />} />
+            <Route path="/eligibility/tum" element={<TUM />} />
+            <Route path="/eligibility/rwth-aachen" element={<RWTHAachen />} />
+            <Route path="/eligibility/tuhh" element={<TUHH />} />
+            <Route path="/eligibility/lmu" element={<LMU />} />
+            <Route path="/eligibility/stuttgart" element={<Stuttgart />} />
+            <Route path="/eligibility/tu-berlin" element={<TUBerlin />} />
+
+            {/* New Zealand Universities Landing & Eligibility Pages */}
+            <Route path="/countries/newzealand" element={<NewZealandUniversities />} />
+            <Route path="/eligibility/auckland" element={<Auckland />} />
+            <Route path="/eligibility/canterbury" element={<Canterbury />} />
+            <Route path="/eligibility/victoria" element={<Victoria />} />
+            <Route path="/eligibility/otago" element={<Otago />} />
+            <Route path="/eligibility/massey" element={<Massey />} />
+            <Route path="/eligibility/auckland-university-of-technology" element={<AUT />} />
+
             <Route path="/enquiry" element={<Enquiry />} />
           </Routes>
         </main>
 
         {/* Premium Footer */}
         <Footer />
-        
+
       </div>
     </Router>
   );

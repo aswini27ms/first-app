@@ -439,6 +439,15 @@ const Home = () => {
                         } else if (destination.code === 'PL') {
                           navigate('/countries/poland');
                         }
+                        else if (destination.code === 'DE') {
+                          navigate('/countries/germany');
+                        }
+                        else if (destination.code === 'CA') {
+                          navigate('/countries/canada');
+                        }
+                        else if (destination.code === 'NZ') {
+                          navigate('/countries/newzealand');
+                        }
                       }}
                     >
                       Explore Programs
