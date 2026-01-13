@@ -4,11 +4,19 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // Core Layout Components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import AboutUs from './components/AboutUs';
+import SuccessStories from './pages/SuccessStories';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/Terms';
+import CookiePolicy from './pages/CookiePolicy';
+import HelpCenter from './pages/HelpCenter';
 
 // Page Components
 import Home from './components-home/Home';
 import Services from './pages/Services';
 import USUniversities from './components-country/us/us';
+import AustraliaUniversities from './components-country/australia/australia';
+import UKUniversities from './components-country/uk/uk';
 
 // Individual University Eligibility Imports (US)
 // Make sure these files exist in your: src/components-country/us/eligibility/ directory
@@ -89,6 +97,18 @@ import PlacementSupportDetail from './pages/services/PlacementSupportDetail';
 import SoftSkillsTrainingDetail from './pages/services/SoftSkillsTrainingDetail';
 import PlacementAssistanceDetail from './pages/services/PlacementAssistanceDetail';
 import PostAdmissionDetail from './pages/services/PostAdmissionDetail';
+import OxfordEligibility from './components-country/uk/eligibility/OxfordEligibility';
+import CambridgeEligibility from './components-country/uk/eligibility/CambridgeEligibility';
+import ImperialEligibility from './components-country/uk/eligibility/ImperialEligibility';
+import LSEEligibility from './components-country/uk/eligibility/LSEEligibility';
+import UCLEligibility from './components-country/uk/eligibility/UCLEligibility';
+import EdinburghEligibility from './components-country/uk/eligibility/EdinburghEligibility';
+import KCLEligibility from './components-country/uk/eligibility/KCLEligibility';
+import ManchesterEligibility from './components-country/uk/eligibility/ManchesterEligibility';
+import BristolEligibility from './components-country/uk/eligibility/BristolEligibility';
+import WarwickEligibility from './components-country/uk/eligibility/WarwickEligibility';
+import GlasgowEligibility from './components-country/uk/eligibility/GlasgowEligibility';
+import BirminghamEligibility from './components-country/uk/eligibility/BirminghamEligibility';
 
 // Placeholder for the Enquiry Page
 const Enquiry = () => (
@@ -135,6 +155,20 @@ function App() {
             <Route path="/countries/us" element={<USUniversities />} />
 
             {/* Individual Eligibility Routes (US Legacy) */}
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/success-stories" element={<SuccessStories />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
+            <Route path="/cookies" element={<CookiePolicy />} />
+            <Route path="/help-center" element={<HelpCenter />} />
+            
+            {/* USA Universities Landing Page */}
+            <Route path="/countries/us" element={<USUniversities />} />
+            {/* Australia Universities Landing Page */}
+            <Route path="/countries/australia" element={<AustraliaUniversities />} />
+            <Route path="/countries/uk" element={<UKUniversities />} />
+            
+            {/* Individual Eligibility Routes */}
             {/* These paths MUST match the 'path' property in your USUniversities.jsx data array */}
             <Route path="/eligibility/harvard" element={<HarvardEligibility />} />
             <Route path="/eligibility/stanford" element={<StanfordEligibility />} />
@@ -200,6 +234,24 @@ function App() {
             <Route path="/eligibility/massey" element={<Massey />} />
             <Route path="/eligibility/auckland-university-of-technology" element={<AUT />} />
 
+            <Route path="/eligibility/oxford" element={<OxfordEligibility />} />
+            <Route path="/eligibility/cambridge" element={<CambridgeEligibility />} />
+            <Route path="/eligibility/imperial" element={<ImperialEligibility />} />
+            <Route path="/eligibility/lse" element={<LSEEligibility />} />
+            <Route path="/eligibility/ucl" element={<UCLEligibility />} />
+            <Route path="/eligibility/edinburgh" element={<EdinburghEligibility />} />
+            <Route path="/eligibility/kings-college-london" element={<KCLEligibility />} />
+            <Route path="/eligibility/manchester" element={<ManchesterEligibility />} />
+            <Route path="/eligibility/bristol" element={<BristolEligibility />} />
+            <Route path="/eligibility/warwick" element={<WarwickEligibility />} />
+            <Route path="/eligibility/glasgow" element={<GlasgowEligibility />} />
+            <Route path="/eligibility/birmingham" element={<BirminghamEligibility />} />
+
+            {/* Add more routes here as you build the files:
+            
+            
+            */}
+            
             <Route path="/enquiry" element={<Enquiry />} />
           </Routes>
         </main>
